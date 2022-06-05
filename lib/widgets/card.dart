@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:todo_list_hive/hive/boxes.dart';
 
@@ -21,42 +23,46 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height * 0.105;
-    double width = MediaQuery.of(context).size.width * 0.1;
-    return SizedBox(
-      height: height,
-      width: width,
-      child: Column(
-        children: <Widget>[
-          Material(
-            borderRadius: BorderRadius.circular(20),
-            color: color,
-            child: ListTile(
-              title: Text(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-              subtitle: Text(
-                description,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-              ),
-              trailing: IconButton(
-                alignment: Alignment.topRight,
-                icon: const Icon(
-                  Icons.delete,
-                ),
-                onPressed: _onDelete,
-              ),
-              onTap: () {
-                _toEditPage(context);
-              },
-            ),
+    double height = MediaQuery.of(context).size.height;
+    return Container(
+        padding: EdgeInsets.symmetric(horizontal: height * 0.01),
+        height: height * 0.08,
+        child: MaterialButton(
+          elevation: 1,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(height * 0.025),
           ),
-        ],
-      ),
-    );
+          color: color,
+          onPressed: () {
+            _toEditPage(context);
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          fontSize: height * 0.02, fontWeight: FontWeight.w300),
+                    ),
+                    Text(description,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: height * 0.016,
+                            fontWeight: FontWeight.w200)),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 
   void _toEditPage(BuildContext context) {
@@ -67,10 +73,5 @@ class CardWidget extends StatelessWidget {
                 noteKey: noteKey,
               )),
     );
-  }
-
-  void _onDelete() {
-    final box = Boxes.getNotes();
-    box.delete(noteKey);
   }
 }
