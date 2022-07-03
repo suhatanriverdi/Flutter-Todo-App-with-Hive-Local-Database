@@ -1,16 +1,11 @@
-# todo_list_hive
+# TODO List Flutter Hive
 
-A new Flutter project.
+This is a very simple TODO list app written in flutter with hive local database.
 
-## Getting Started
+Sample screenshots:
 
-This project is a starting point for a Flutter application.
+<img width="412" alt="Screen Shot 2022-07-03 at 23 06 01" src="https://user-images.githubusercontent.com/36234545/177055608-5eecb7e1-6273-4586-88fb-b128de6c3428.png">
 
-A few resources to get you started if this is your first Flutter project:
+<img width="412" alt="Screen Shot 2022-07-03 at 23 06 01" src="https://user-images.githubusercontent.com/36234545/177055609-3470ce9e-bd20-4f5d-9467-1ff874f21bf5.png">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="412" alt="Screen Shot 2022-07-03 at 23 06 01" src="https://user-images.githubusercontent.com/36234545/177055611-33f3eff3-89c8-4309-8611-1cfd7d08793b.png">
